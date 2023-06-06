@@ -4,51 +4,63 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>replit</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
 </head>
 
+  
 <body>
 
 <div class="container">
   <div class="website-front">
       <div class="title">
+         <!-- Layout for the front/ beginning of the website, I wanted it to seem like a cover page for the whole website, 
+        despite it only being a single page. My original idea was to put a start button that would take the user to the form, being furthur 
+      down the page. 
+    I decided to change this as I thought it was unnecessary to add and those that making a nice layout for the aim of my website would be more
+    a more efficient use of space. 
+    -->
         <p1>Start tracking movie progress on</p1>
-        <img class="imgA2" src="/logoimages/logo.png" alt="FilmStar Logo" style="width:550px">
+        <img class="smallLogo" src="/logoimages/logo.png" alt="FilmStar Logo" style="width:550px">
         
-    <img class="imgA3" src="/background/coverimage.png" alt="movie screenshots" style="width:800px">
+    <img class="movieScreenshots" src="/background/coverimage.png" alt="movie screenshots" style="width:800px">
 
-        <!-- Created a rectangle for a page break -->
+        <!-- Created a rectangle for a longer page break -->
         <div class="rectangle"></div>
   </div>
-              <!-- Animated stars at the back code inspired by: https://github.com/Carla-Codes/starry-night-css-animation -->
-      <div class="stars">
-               <img class="imgstars" src="/background/newbackground.png" alt="Background for stars" width=1450 height=800"> 
-                       <img class="imgstars2" src="/background/stars.pngggg" alt="Background for stars" width=1600 height=800"> <!-- Change the stars.pngg to one g to reveal the star background -->
+      <div class="curtains">
+               <img class="redCurtain" src="/background/curtains.png" alt="Curtains for the cover page" width=1450 height=800"> 
+
       </div>
-      <div class="twinkling"></div>
   </div>
-    
 
   <div class="unfinished">
     <div class="about">
+      <!-- A small 'about' section was added to my site to give the site structure between the form and the cover images from the beginning 
+      Adding a short description on the overall aim of the website gave it a sense of personal use for the user when inputting their unfinished movies
+      As well as a get to know a bit on the site and who it was intended for!
+      -->
         <h2>What is Film Star?</h2>
   <p2>FilmStar is a movie tracking website for keeping track of finished and unfinished movies, in any genre. This website specifically targets movie lovers who do not have time to be watching movies in one go.
-FilmStar makes it easy and sufficient for busy students and workers to enjoy their leisure time away from work or school to be stress-free when continuing their desired movie.
-It also allows to keep track of the movies finished and enjoyed by adding a one to five star rating when adding the movie to the finished tab. </p2>
+FilmStar makes it easy and sufficient for busy students and workers to enjoy their leisure time away from work or school to be stress-free when continuing their desired movie.</p2>
                 
-      <center><img class="imgA1" src="/logoimages/Fstar.png" alt="FilmStar Logo" style="width:100px"></center>
+      <center><img class="fullLogo" src="/logoimages/fstar.png" alt="FilmStar Logo" style="width:100px"></center>
        </div>
-
-    <!-- Section for images for when user chooses their desired genre-->
     <div class="unfinishedimg">
-      <center> <img src="/genreImages/pleaseSelect.png" alt="Please select a genre" width=250 height=400"> </center>
+      <center> <img src="/background/television.jpg" alt="Turning the television on" width=250 height=400"> </center>
       
     </div>
     <div class="unfinform">
     <section>
-      <form id="taskform">
-        <h1>Unfinished</h1>
+      <!-- 
+        The layout of the form is clearly and heavily inspired from the A2 coding challenge
+        I really liked the simple layout of the form and decided to implement into my own code
+      -->
+      <form id="movieform">
+        <center><h1>Add unfinished movie</h1></center>
+        <br>
         <div class="form-row">
           <label for="movieName">Movie Name</label>
           <input type="text" name="movieName" id="movieName" required="true" />
@@ -63,10 +75,27 @@ It also allows to keep track of the movies finished and enjoyed by adding a one 
             <option value="Comedy">Comedy</option>
             <option value="Horror">Horror</option>
             <option value="Romance">Romance</option>
-            <option value="Adventure">Adventure</option>
+            <option  value="Adventure">Adventure</option>
             <option value="Drama">Drama</option>
+            <option value="Other">Other</option>
+            <!-- The form section of this website is quite similar to my draft from A3
+            However, For the genre selection, I had decided to remove the genre images that would have 
+            automatically been selected when choosing the desired genre. 
+            I had realised that despite movies being in the same genre, the images selected do not represent 
+            the actual movie that would have been written in and that it would have not added any substance to the website.
+            Therefore having no purpose in an automatic genre image
+            -->
           </select>
         </div>
+
+        <!-- Added an opinion row
+        For user to know whether to finish the movie or not
+        -->
+        <div class="form-row">
+          <label for="movieOpinion">Opinions so far</label>
+          <input type="text" name="movieOpinion" id="movieOpinion" required="true" />
+        </div>
+
         <div class="form-row">
           <label for="movieYear">Year Released</label>
           <input type="number" name="movieYear" id="movieYear" required="true" />
@@ -78,44 +107,21 @@ It also allows to keep track of the movies finished and enjoyed by adding a one 
         <br> 
         <div class="form-row">
 
-          <!-- Adding value to allow user to know that the button adds the movie to the list--> 
+          <!-- Adding value "Add movie" to be more specific in what the buttons do and to allow user to know that the button adds the movie to the list--> 
+          <br>
           <input type="submit" value="Add Movie">
         </div>
       </form>
     </section>
 
     <aside>
-    <!-- List for finished movies and title --> 
-      <h2>Unfinished</h2>
-      <ul id="tasklist">
+      <br>
+      <h1>Movies to finish...</h1>
+      <ul id="movielist">
       </ul>
 </aside>
-    </div>
   </div>
-
-  <div class="finished">
-    <h1>Finished Movies</h1>
-  <!--   <ul>
-      Empty list to add content to the local storage  
-    </ul>-->
-  </div>
-  <div class="finishedimg"></div>
-  <div class="finform"></div>
 </div>
-
-
-
-  
-<!--
- After A2 feedback on layout, I tried to incorporate more trending UI designs. 
-  I had removed the pink and green colourway...
-  
-  completetly made the colour theme consisting of darker colours such as black, yellow and white to adhere more to my targetting audience -->
-
-
-
-
-  
 
     <script src="script.js"></script>
 

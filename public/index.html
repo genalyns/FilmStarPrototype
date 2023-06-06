@@ -4,79 +4,120 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>JS Task List</title>
+  <title>replit</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
-  <header>
-    <div class="five-pointed-star"></div>
 
-<h1> FilmStar </h1>
+<div class="container">
+  <div class="website-front">
+      <div class="title">
+        <p1>Start tracking movie progress on</p1>
+        <img class="imgA2" src="/logoimages/logo.png" alt="FilmStar Logo" style="width:550px">
+        
+    <img class="imgA3" src="/background/coverimage.png" alt="movie screenshots" style="width:800px">
+
+        <!-- Created a rectangle for a page break -->
+        <div class="rectangle"></div>
+  </div>
+              <!-- Animated stars at the back code inspired by: https://github.com/Carla-Codes/starry-night-css-animation -->
+      <div class="stars">
+               <img class="imgstars" src="/background/newbackground.png" alt="Background for stars" width=1450 height=800"> 
+                       <img class="imgstars2" src="/background/stars.pngggg" alt="Background for stars" width=1600 height=800"> <!-- Change the stars.pngg to one g to reveal the star background -->
+      </div>
+      <div class="twinkling"></div>
+  </div>
     
-<center><button>Start</button></center>
-  </header>
+
+  <div class="unfinished">
+    <div class="about">
+        <h2>What is Film Star?</h2>
+  <p2>FilmStar is a movie tracking website for keeping track of finished and unfinished movies, in any genre. This website specifically targets movie lovers who do not have time to be watching movies in one go.
+FilmStar makes it easy and sufficient for busy students and workers to enjoy their leisure time away from work or school to be stress-free when continuing their desired movie.
+It also allows to keep track of the movies finished and enjoyed by adding a one to five star rating when adding the movie to the finished tab. </p2>
+                
+      <center><img class="imgA1" src="/logoimages/Fstar.png" alt="FilmStar Logo" style="width:100px"></center>
+       </div>
+
+    <!-- Section for images for when user chooses their desired genre-->
+    <div class="unfinishedimg">
+      <center> <img src="/genreImages/pleaseSelect.png" alt="Please select a genre" width=250 height=400"> </center>
+      
+    </div>
+    <div class="unfinform">
+    <section>
+      <form id="taskform">
+        <h1>Unfinished</h1>
+        <div class="form-row">
+          <label for="movieName">Movie Name</label>
+          <input type="text" name="movieName" id="movieName" required="true" />
+        </div>
+
+        <div class="form-row">
+          <label for="movieGenre">Genre</label>
+          <select id="movieGenre" name="movieGenre" required="true">
+            <option value="">Please select</option>
+            <option value="Thriller">Thriller</option>
+            <option value="Action">Action</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Horror">Horror</option>
+            <option value="Romance">Romance</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Drama">Drama</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="movieYear">Year Released</label>
+          <input type="number" name="movieYear" id="movieYear" required="true" />
+        </div>
+        <div class="form-row">
+          <label for="movieProgress">Progress (minutes left)</label>
+          <input type="number" name="movieProgress" id="movieProgress" required="true" />
+        </div>
+        <br> 
+        <div class="form-row">
+
+          <!-- Adding value to allow user to know that the button adds the movie to the list--> 
+          <input type="submit" value="Add Movie">
+        </div>
+      </form>
+    </section>
+
+    <aside>
+    <!-- List for finished movies and title --> 
+      <h2>Unfinished</h2>
+      <ul id="tasklist">
+      </ul>
+</aside>
+    </div>
+  </div>
+
+  <div class="finished">
+    <h1>Finished Movies</h1>
+  <!--   <ul>
+      Empty list to add content to the local storage  
+    </ul>-->
+  </div>
+  <div class="finishedimg"></div>
+  <div class="finform"></div>
+</div>
+
+
 
   
- <h2> Ongoing</h2> 
-  <form id="taskform">
-    <div class="form-row">
-      <label for="taskName">Name</label>
-      <input type="text" name="taskName" id="taskName" required="true" />
-    </div>
-    <div class="form-row">
-      <label for="taskType">Type</label>
-      <input type="text" name="taskType" id="taskType" required="true" />
-    </div>
-    <div class="form-row">
-      <label for="taskRate">Rate</label>
-      <input type="number" name="taskRate" id="taskRate" required="true" />
-    </div>
-    <div class="form-row">
-      <label for="taskTime">Time</label>
-      <input type="number" name="taskTime" id="taskTime" required="true" />
-    </div>
-    <div class="form-row">
-      <label for="taskClient">Client</label>
-      <input type="text" name="taskClient" id="taskClient" required="true" />
-    </div>
-    <div class="form-row">
-      <input type="submit"/>
-    </div>
-  </form>
-  <h2>Tasks</h2>
-  <ul id="tasklist"></ul>
-  <script src="script.js"></script>
-  </script>
+<!--
+ After A2 feedback on layout, I tried to incorporate more trending UI designs. 
+  I had removed the pink and green colourway...
+  
+  completetly made the colour theme consisting of darker colours such as black, yellow and white to adhere more to my targetting audience -->
 
 
-  <h2> Finished</h2> 
-  <form id="taskform">
-    <div class="form-row">
-      <label for="taskName">Name</label>
-      <input type="text" name="taskName" id="taskName" required="true" />
-    </div>
-    <div class="form-row">
-      <label for="taskType">Type</label>
-      <input type="text" name="taskType" id="taskType" required="true" />
-    </div>
-    <div class="form-row">
-      <label for="taskRate">Rate</label>
-      <input type="number" name="taskRate" id="taskRate" required="true" />
-    </div>
-    <div class="form-row">
-      <label for="taskTime">Time</label>
-      <input type="number" name="taskTime" id="taskTime" required="true" />
-    </div>
-    <div class="form-row">
-      <label for="taskClient">Client</label>
-      <input type="text" name="taskClient" id="taskClient" required="true" />
-    </div>
-    <div class="form-row">
-      <input type="submit"/>
-    </div>
-  </form>
 
+
+  
+
+    <script src="script.js"></script>
 
 </body>
 

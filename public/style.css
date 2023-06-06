@@ -1,91 +1,378 @@
-/* CSS for tracker */
-html {
-    background-color: #365240;
-    color: white;
-    height: 100%;
-    width: 100%;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  body {
-    margin: 20px auto;
-    padding: 0 20px 400px;
-    max-width: 800px;
-  }
-  
-  /* CSS for Front page */
-  
-  /* Star code inspired from https://www.coding-dude.com/wp/css/css-star/#:~:text=How%20do%20you%20add%20a,or%20draw%20CSS%20star%20shapes. */
-  
-  /* Pink star on top left??? */
-  .five-pointed-star {
-   --star-color:#FDC0F9;
-   margin:1em auto;
-   font-size:10em;
-   position: relative;
-   display: block;
-   width: 0px;
-   height: 0px;
-   border-right: 1em solid transparent;
-   border-bottom: 0.7em solid var(--star-color);
-   border-left: 1em solid transparent;
-   transform: rotate(35deg);
-  }
-  .five-pointed-star:before {
-   border-bottom: 0.8em solid var(--star-color);
-   border-left: 0.3em solid transparent;
-   border-right: 0.3em solid transparent;
-   position: absolute;
-   height: 0;
-   width: 0;
-   top: -0.45em;
-   left: -0.65em;
-   display: block;
-   content:"";
-   transform: rotate(-35deg);
-  }
-  .five-pointed-star:after {
-   position: absolute;
-   display: block;
-   top: 0.03em;
-   left: -1.05em;
-   width: 0;
-   height: 0;
-   border-right: 1em solid transparent;
-   border-bottom: 0.7em solid var(--star-color);
-   border-left: 1em solid transparent;
-   transform: rotate(-70deg);
-   content:"";
-  }
-  
-  
-  
-  /* Button */
-  button {
-    width: 300px;
-    color: #FDC0F9; 
-    background-color: #365240;
-    border: 2px solid #FDC0F9;
-    border-radius: 55px;
-    
-    transition-duration: 0.4s;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);  
-  }
-  
-  button:hover {
-     background-color: #304a39;
-      color: white;
-      box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-  
-  }
+html{
+  background-color: black;
+  color: white;
+  height: 100%;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+}
+
+.website-front { grid-area: 1 / 1 / 2 / 4; }
+
+.unfinished {  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "about about about"
+    "unfinishedimg unfinform unfinform"
+    "unfinishedimg unfinform unfinform";
+  grid-area: 2 / 1 / 3 / 4;
+             
+               top: -10px;;
+}
+
+.about { grid-area: about;
+          background-color: white;
+  color: black;
+  padding: 2rem;
+  border-radius: 1rem;
+  z-index:1;
+  margin: 100px;
+
+       }
+
+.unfinishedimg { grid-area: unfinishedimg; }
+
+.unfinform { grid-area: unfinform; }
+
+.finished { grid-area: 3 / 1 / 4 / 4; }
+
+.finishedimg { grid-area: 3 / 1 / 4 / 2; }
+
+.finform { grid-area: 3 / 2 / 4 / 4; }
+
+/* code to put an image over an image. Code from https://stackoverflow.com/questions/48474/how-do-i-position-one-image-on-top-of-another-in-html */
+img {
+  top: 50px;
+  left: 50px;
+}
+
+/* This code helps it be on top of all the other codes */
+.imgA1 {
+  z-index: -1;
+  top: 800px;
+  left: 150px;
+}
+
+.imgA2 {
+  z-index: 3;
+  margin: 90px;
+  position: absolute;
+}
+
+.imgA3 {
+  z-index: 4;
+  left: 550px;
+  top: 1px;
+  position: relative;
+}
+
+.imgstars{
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
   
 
-  h2{
-    outline-style: dashed;
-    outline-width: 2px;
-    border-radius: 25px;
   
-    
-    color: #FDC0F9;
-    
-  }
+}
+
+.imgstars2{
+  z-index: 1;
+  top: auto;
+  left: auto;
+}
+
+/* Created a rectangle for an invisible page break*/
+.rectangle {
+  height: 50px;
+  width: 100px;
+  background-color: #000000;
+}
+
+/* Animated stars at the back code inspired by: https://github.com/Carla-Codes/starry-night-css-animation */
+.title p1{
+    font-size: 20px;
+    font-family: 'Lato', sans-serif;
+    margin-top: 6em;
+    margin-left: 13em;
+    margin-right: 10em;
+
+    /* Make sure text is infront of background images */
+    display:block;
+    position: relative;
+    z-index: 3;
+}
+
+@keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+
+@keyframes move-clouds-back {
+    from {background-position:0 0;}
+    to {background-position:10000px 0;}
+}
+
+
+.stars, .twinkling{
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  width:100%;
+  height:100%;
+  display:block;
+}
+
+/* Uncomment this for the star animation back !!!!
+.twinkling{
+  background:transparent url("background/twinkling.png") repeat top center;
+  z-index:1;
+  animation:move-twink-back 300s linear infinite;
+  margin-top: 1000px;
+  width: 1000px;
+  height: 800px;
+  
+}
+
+/*
+.info{
+  background-color: white;
+  color: black;
+  padding: 2rem;
+  border-radius: 1rem;
+  z-index:1;
+
+/* layouts for the website */
+html {
+  height: 100%;
+  width: 100%;
+}
+
+.container {  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 0.7fr 1.3fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "websitefront websitefront websitefront"
+    "imageslot formslot formslot"
+    "finished finished finished";
+}
+
+.imageslot {  display: grid;
+  grid-template-columns: 0.4fr 2.2fr 0.4fr;
+  grid-template-rows: 0.4fr 2.2fr 0.4fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    ". . ."
+    ". genreimage ."
+    ". . .";
+  grid-area: imageslot;
+}
+
+.genreimage {  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    ". . ."
+    ". . ."
+    ". . .";
+  grid-area: genreimage;
+}
+
+.formslot {  display: grid;
+  grid-template-columns: 0.1fr 3.2fr 0.1fr;
+  grid-template-rows: 0.4fr 2.2fr 0.4fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    ". . ."
+    ". inputform ."
+    ". . .";
+  grid-area: formslot;
+}
+
+.inputform { grid-area: inputform; 
+             z-index: 3;}
+
+.websitefront { grid-area: websitefront;}
+
+.finished {  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    ". finishedform finishedform"
+    ". finishedform finishedform"
+    ". finishedform finishedform";
+  grid-area: finished;
+}
+
+.finishedform { grid-area: finishedform; }
+
+.h2 {
+  margin-bottom: 1em;
+  color: white;
+}
+
+
+/* Code inspired from the coding challenges */ 
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+header {
+  height: 70px;
+  padding: 1em 0;
+}
+
+header > h1 {
+  text-align: center;
+  
+}
+
+h2 {
+  margin-bottom: 1em;
+  text-align: center;
+
+  color: pink;
+}
+
+h1{
+  color: red;
+  z-index: 3;
+}
+
+main {
+  height: calc(100vh - 70px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "taskform tasklist";
+  z-index: 3;
+}
+
+main section {
+  grid-area: taskform;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  
+}
+
+form {
+  margin: 0 auto;
+  padding: 3em;
+  
+  outline-style:dashed;
+  outline-width: 2px;
+  border-radius: 20px;
+  color: #3700ff;
+}
+
+.form-row {
+  display: flex;
+  justify-content: flex-end;
+  padding: .5em;
+}
+
+.form-row > label {
+  width: 100px;
+}
+
+.form-row > input,
+.form-row > select {
+  padding: .5em;
+  flex-grow: 1;
+}
+
+.form-row > select:hover {
+  padding: .5em;
+  flex-grow: 1;
+  color: red;
+  background-color: green;
+}
+
+
+aside {
+  grid-area: tasklist;
+  padding: 1em;
+  overflow-y: scroll;
+}
+
+
+#tasklist {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin-block-start: 0;
+  padding: 0;
+}
+
+#tasklist li {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: 1em;
+  margin-bottom: 1em;
+  
+  outline-style:dashed;
+  outline-width: 2px;
+  border-radius: 20px;
+}
+
+#tasklist li p {
+  flex-grow: 1;
+  margin-left: 10px;
+  max-width: 200px;
+}
+#tasklist li span {
+  text-align: right;
+  flex-grow: 1;
+  margin-right: 10px;
+  max-width: 200px;
+}
+
+#tasklist li deleteButton {
+  color: white;
+  font-size: 20px;
+  padding: 4px;
+  border-radius: 25px;
+}
+
+/* Button hover effects --> allows user to know that the bin icon is clickable == therefore allowing them to delete the movie from the list */
+#tasklist li delButton:hover {
+  font-size: 25px;
+  padding: 2px;
+  border-radius: 25px;
+}
+
+article {
+  background-color: #efefef;
+  height: 100vh;
+  padding: 3em 0;
+  overflow-y: scroll;
+}
